@@ -1,9 +1,11 @@
 <% include partials/header %>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 <style media="screen">
 .login-page {
-  width: 360px;
-  padding: 8% 0 0;
+  /* width: 360px; */
+  padding: 3% 0 0;
   margin: auto;
 }
 .form {
@@ -45,7 +47,7 @@
   background: #43A047;
 }
 .form .message {
-  margin: 15px 0 0;
+  /* margin: 15px 0 0; */
   color: #b3b3b3;
   font-size: 12px;
 }
@@ -69,7 +71,7 @@
   clear: both;
 }
 .container .info {
-  margin: 50px auto;
+  /* margin: 50px auto; */
   text-align: center;
 }
 .container .info h1 {
@@ -96,24 +98,29 @@ body {
   background: -moz-linear-gradient(right, #76b852, #8DC26F);
   background: -o-linear-gradient(right, #76b852, #8DC26F);
   background: linear-gradient(to left, #76b852, #8DC26F);
-  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 </style>
 
 <div class="login-page">
+
+  <% if(message) {%>
+    <div class="conatiner" style="margin: 0 64px;">
+      <div class="alert alert-danger">
+        <%=message%>
+      </div>
+    </div>
+  <% } %>
   <div class="form">
     <h5 style="  text-transform: uppercase;">Register here</h5>
-    <!-- <form class="register-form">
-      <input type="text" placeholder="name"/>
-      <input type="password" placeholder="password"/>
-      <input type="text" placeholder="email address"/>
-      <button>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
-    </form> -->
     <form class="login-form" action="/signup" method="POST">
-      <input type="text" placeholder="username" name="username"/>
+      <input type="text" placeholder="Username" name="username" required/>
+      <input type="email" placeholder="Email" name="email" required/>
+      <input type="text" placeholder="Phone Number" name="phone" required/>
+      <input type="text" placeholder="College/Organization" name="college" required/>
+      <input type="text" placeholder="Area of Interest" name="interest" required/>
+
       <button>Register</button>
       <!-- <p class="message">Not registered? <a href="#">Create an account</a></p> -->
     </form>
